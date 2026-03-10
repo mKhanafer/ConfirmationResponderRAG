@@ -12,31 +12,34 @@
            DESIGN TOKENS
            ============================================ */
         :root {
-            /* Colors - Dark Theme */
-            --color-bg-primary: #0a0a0a;
-            --color-bg-secondary: #141414;
-            --color-bg-tertiary: #1a1a1a;
-            --color-bg-elevated: #1f1f1f;
+            /* Colors - Light Theme (Thomson Reuters) */
+            --color-bg-primary: #f8f9fa;
+            --color-bg-secondary: #ffffff;
+            --color-bg-tertiary: #f1f3f5;
+            --color-bg-elevated: #ffffff;
             
-            --color-surface-card: #1a1a1a;
-            --color-surface-hover: #222222;
+            --color-surface-card: #ffffff;
+            --color-surface-hover: #f8f9fa;
             
-            --color-border-subtle: rgba(255, 255, 255, 0.1);
-            --color-border-medium: rgba(255, 255, 255, 0.15);
-            --color-border-strong: rgba(255, 255, 255, 0.2);
+            --color-border-subtle: #e9ecef;
+            --color-border-medium: #dee2e6;
+            --color-border-strong: #ced4da;
             
-            --color-text-primary: #e8e8e8;
-            --color-text-secondary: #a0a0a0;
-            --color-text-muted: #6b6b6b;
-            --color-text-inverse: #0a0a0a;
+            --color-text-primary: #212529;
+            --color-text-secondary: #6c757d;
+            --color-text-muted: #adb5bd;
+            --color-text-inverse: #ffffff;
             
-            --color-primary: #4a9eff;
-            --color-primary-hover: #6bb0ff;
-            --color-primary-active: #2e8aff;
+            --color-tr-orange: #ff7f32;
+            --color-tr-orange-dark: #e66e29;
             
-            --color-success: #4ade80;
-            --color-warning: #fbbf24;
-            --color-error: #f87171;
+            --color-primary: #0066cc;
+            --color-primary-hover: #0052a3;
+            --color-primary-active: #003d7a;
+            
+            --color-success: #28a745;
+            --color-warning: #ffc107;
+            --color-error: #dc3545;
             
             /* Typography */
             --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -76,9 +79,9 @@
             --radius-lg: 12px;
             
             /* Shadows */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
             
             /* Transitions */
             --transition-fast: 120ms ease-out;
@@ -133,31 +136,39 @@
         }
 
         .nav-header {
-            padding: var(--space-24);
+            padding: var(--space-16) var(--space-24);
             border-bottom: 1px solid var(--color-border-subtle);
+            background: var(--color-bg-secondary);
         }
 
         .nav-logo {
             display: flex;
             align-items: center;
-            gap: var(--space-12);
+            gap: var(--space-8);
         }
 
         .nav-logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--color-primary);
-            border-radius: var(--radius-md);
+            font-size: 20px;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-tr-orange);
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: var(--font-size-lg);
+            gap: 4px;
+        }
+
+        .nav-logo-icon::before {
+            content: "◆";
+            font-size: 16px;
         }
 
         .nav-logo-text {
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-normal);
             color: var(--color-text-primary);
+        }
+
+        .nav-logo-text strong {
+            font-weight: var(--font-weight-semibold);
         }
 
         .nav-menu {
@@ -187,8 +198,8 @@
 
         .nav-item.active {
             background: var(--color-bg-elevated);
-            color: var(--color-primary);
-            border-color: var(--color-border-subtle);
+            color: var(--color-tr-orange);
+            border-color: var(--color-border-medium);
         }
 
         .nav-footer {
@@ -300,14 +311,13 @@
         }
 
         .message.user .message-avatar {
-            background: var(--color-primary);
+            background: var(--color-tr-orange);
             color: var(--color-text-inverse);
         }
 
         .message.assistant .message-avatar {
-            background: var(--color-bg-elevated);
-            color: var(--color-text-secondary);
-            border: 1px solid var(--color-border-subtle);
+            background: var(--color-primary);
+            color: var(--color-text-inverse);
         }
 
         .message-author {
@@ -326,6 +336,7 @@
             padding: var(--space-16);
             background: var(--color-surface-card);
             border: 1px solid var(--color-border-subtle);
+            border-radius: var(--radius-md);medium);
             border-radius: var(--radius-md);
             font-size: var(--font-size-sm);
             line-height: var(--line-height-relaxed);
@@ -333,10 +344,9 @@
         }
 
         .message.user .message-content {
-            background: var(--color-primary);
-            color: var(--color-text-inverse);
-            border-color: transparent;
-        }
+            background: var(--color-bg-tertiary);
+            color: var(--color-text-primary);
+            border-color: var(--color-border-medium)
 
         .message-sources {
             margin-left: 36px;
@@ -402,7 +412,7 @@
 
         .input-area:focus-within {
             border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
         }
 
         .input-field {
@@ -527,16 +537,14 @@
         }
 
         .status-dot {
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: var(--color-success);
-            animation: pulse 2s ease-in-out infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        .status-dot.online {
+            background: var(--color-success);
         }
 
         /* ============================================
@@ -663,6 +671,8 @@
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
+        }12px;
+            height: 12px;
         }
 
         ::-webkit-scrollbar-track {
@@ -670,14 +680,13 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--color-border-medium);
-            border-radius: 4px;
+            background: var(--color-border-strong);
+            border-radius: 6px;
+            border: 3px solid var(--color-bg-primary);
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--color-border-strong);
-        }
-    </style>
+            background: var(--color-text-muted
 </head>
 <body>
     <div class="app-shell">
@@ -685,8 +694,8 @@
         <nav class="left-nav" id="leftNav">
             <div class="nav-header">
                 <div class="nav-logo">
-                    <div class="nav-logo-icon">🤖</div>
-                    <div class="nav-logo-text">Confirmation AI</div>
+                    <div class="nav-logo-icon">THOMSON REUTERS</div>
+                    <div class="nav-logo-text"><strong>Confirmation</strong></div>
                 </div>
             </div>
             
@@ -708,8 +717,8 @@
             <div class="nav-footer">
                 <div class="status-badge">
                     <span class="status-dot"></span>
-                    <span>Online</span>
-                </div>
+                    <span>Online</span> online"></span>
+                    <span style="color: var(--color-success); font-weight: var(--font-weight-medium);"
             </div>
         </nav>
 
@@ -724,7 +733,7 @@
                     </svg>
                 </button>
                 <h1 class="top-bar-title">Confirmation Migration Assistant</h1>
-            </div>
+            </div>ha
 
             <div class="content-wrapper">
                 <div class="content-inner">
