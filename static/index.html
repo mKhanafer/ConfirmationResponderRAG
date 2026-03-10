@@ -871,7 +871,7 @@
                                 }
                                 
                                 if (data.done) {
-                                    addSourcesTo Message(streamingMessageId, sources);
+                                    addSourcesToMessage(streamingMessageId, sources);
                                 }
                             } catch (e) {
                                 console.error('Error parsing SSE data:', e);
